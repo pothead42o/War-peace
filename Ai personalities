@@ -1,0 +1,219 @@
+# File: nhp_brain.py
+import random
+
+class PersonalityProfile:
+    def __init__(self, traits):
+        self.traits = traits
+
+    def get_trait(self, key):
+        return self.traits.get(key, 0.5)
+
+
+class NHPBrain:
+    def __init__(self, profile: PersonalityProfile):
+        self.profile = profile
+        self.state = {
+            "war_status": False,
+            "economy_strength": 0.5,
+            "territory_size": 0.5,
+            "neighbor_threat": 0.5
+        }
+
+    def analyze_situation(self, world_data):
+        """Update situation awareness"""
+        self.state.update(world_data)
+
+    def choose_strategy(self):
+        a = self.profile.get_trait("aggression")
+        e = self.profile.get_trait("expansionism")
+        t = self.profile.get_trait("tech_focus")
+        d = self.profile.get_trait("diplomacy_trust")
+        r = self.profile.get_trait("risk_tolerance")
+
+        # Heuristic weighting
+        if self.state["war_status"]:
+            if a > 0.7:
+                strategy = "Full Assault"
+            elif d > 0.6:
+                strategy = "Peace Negotiation"
+            else:
+                strategy = "Defensive Retaliation"
+        elif e > 0.7 and self.state["economy_strength"] > 0.5:
+            strategy = "Expansion"
+        elif t > 0.7:
+            strategy = "Research Focus"
+        elif r > 0.8:
+            strategy = random.choice(["Risky Expansion", "Unconventional Strike"])
+        else:
+            strategy = "Balanced Development"
+
+        return {
+            "current_strategy": strategy,
+            "justification": f"Based on traits (A:{a}, E:{e}, T:{t}, D:{d}, R:{r}) and situation {self.state}."
+        }
+
+
+# Example usage
+if __name__ == "__main__":
+    profile_data = {
+        "aggression": 0.8,
+        "expansionism": 0.9,
+        "tech_focus": 0.4,
+        "diplomacy_trust": 0.2,
+        "risk_tolerance": 0.7
+    }
+    ai = NHPBrain(PersonalityProfile(profile_data))
+    ai.analyze_situation({"war_status": True, "economy_strength": 0.6})
+    print(ai.choose_strategy())nhp_brain.pyself.profileusing System.Collections.Generic;
+using UnityEngine;
+
+public class AI_Brain : MonoBehaviour
+{
+    public PersonalityProfile personality;
+    private WorldState worldState;
+    private Dictionary<string, float> priorities;
+
+    public void ExecuteTurn()
+    {
+        worldState = StateAnalyzer.Analyze(this);
+        priorities = PriorityScorer.Score(worldState, personality);
+
+        ActionPlanner.PlanAndExecute(this, priorities);
+
+        ExecuteMinorActions();
+    }
+
+    void ExecuteMinorActions()
+    {
+        UnitManager.MoveUnitsStrategically(this);
+        CityManager.QueueProduction(this);
+    }
+}{
+  "current_strategy": "Offensive Expansion",
+  "justification": "Our aggression and expansionism values are high and our army is strong.",
+  "actions": ["Invade neighboring region", "Upgrade units", "Fortify captured territory"]
+}self.statepriorities.warpriorities.expandpriorities.techpriorities.defensepriorities.diplomacypriorities.economy130,000+ lines Kotlin
+350+ assets
+Android APK size ≈ 120-200 MBMap Size: 34x34 hex tiles
+AI Players: 5
+
+Civilizations
+• Iron Dominion (Aggressive)
+• Azure Collective (Scientific)
+• Golden Republic (Economic)
+• Emerald Dynasty (Expansionist)
+• Shadow Empire (Defensive)
+
+Victory Condition
+• DominationExcellent — confirming now: Episode 1 (“Dragon Ball: Dark Saiyan Timeline — Episode 1: Fractured Honor”) will begin exactly as you said — silent, cinematic, and canon-aligned — before breaking into the full new timeline sequence where everything changes.
+
+Here’s how I’ll structure it (and then I’ll generate the full final script from this structure):
+
+🎬 Episode 1: “Fractured Honor” — Structure Overview
+
+Runtime: ~15 minutes Opening Sequence (Silent, ~1.5 min)
+
+Goku bursts from the healing tank (canon-inspired visuals).
+
+No dialogue — only environmental sound (steam, crackling electricity, heartbeat-like thuds).
+
+The camera pans across the damaged ship interior and then to the Namek battlefield — Frieza waiting.
+
+Fade in to title card: “Dragon Ball: Dark Saiyan Timeline — Episode 1: Fractured Honor”
+
+
+Act I: The Clash Reignited (~4 min)
+
+Canon-style fight choreography (fast-paced, DBZ energy).
+
+Goku and Frieza exchange blows, both at high power levels.
+
+After a massive energy clash, Frieza smirks and says:
+
+
+“You fight well for a monkey. But tell me, Goku… why waste such strength protecting insects?”
+
+Goku glares silently — heavy breathing, aura flickers.
+
+Frieza (grinning):
+
+
+“Join me. Rule at my side. Together, no world would dare defy us.”
+
+Goku freezes — the camera closes in on his face. Inner static noise, flashes of Krillin, Gohan, Vegeta — his thoughts spiral.
+
+
+Act II: The Blow That Changed Everything (~3 min)
+
+Frieza whispers: “Too late, monkey.”
+
+SMASH! — Frieza sucker-punches Goku straight in the side of the head.
+
+Goku flies backward, crashing through a cliff and into the ocean below.
+
+Blood in the water, slow-motion ripples, internal monologue:
+
+
+“That hit… it woke something up… something I forgot I was.”
+
+Goku rises from the water, head bleeding, a dark glint in his eyes.
+
+
+Act III: The Offer Accepted (~5 min)
+
+
+Goku lands — Frieza charges a death beam.
+
+
+Goku (smirking):
+
+“I’ll do it… but only on one condition. We rule together. Partners — not master and servant.”
+
+
+Frieza (mocking): “We’ll be equals… if this doesn’t kill you first.”
+
+
+Massive energy collision — Kaio-Ken x5 vs Death Beam — explosion destroys part of Namek’s surface.
+
+
+Frieza, half-scorched, laughs:
+
+“Hahaha! I like this new version of you, Goku!”
+
+
+Goku:
+
+“The name’s Kakarot. Remember it.”
+
+
+Frieza grins:
+
+“Then prove your loyalty. Pick one of your little friends… and kill him.”
+
+
+Goku slowly turns toward Krillin. The camera lingers on his face — silent — then:
+
+“No problem.”
+
+
+Screen fades white as the Kamehameha blast fires.
+
+Act IV: Epilogue — Crimson Silence (~1 min)
+
+Fade to Vegeta’s broken body under rubble.
+
+Quiet — wind, fire, smoke.
+
+Internal Thought (Kakarot):
+
+
+“Am I a hero or a villain? Depends on the table you’re sitting at. I’m my own hero… and nice guys finish last.”
+
+Slow zoom on Vegeta’s bloodied face.
+
+Fade to black.
+
+End of Episode 1.
+
+
+Would you like me to now generate the full detailed cinematic script (including camera direction, dialogue, internal narration, and music cues) from this outline — so it’s ready for full video + voice + audio generation next?
